@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- =========== mainactivity.java  =============
-
+    
+    <label for="">========== mainactivity.java =============</label>
+    <textarea name="" id="">
+        
     package com.example.kamo;
     
     import android.os.Bundle;
@@ -79,185 +81,201 @@
             t.commit();
         }
     }
+    </textarea>
+     <br><br>
+    <hr> <hr>
     
-    =========== mainactivity.xml ===============
+    <label for=""> =========== mainactivity.xml =============== </label>
+    <textarea name="" id="">
+            <?xml version="1.0" encoding="utf-8"?>
+            <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
+            
+               <FrameLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/fcontainer"/>
+            
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </textarea>
     
-    <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+
+    <br><br>
+    <hr><hr>
+   <label for="">  ============= regiFragment.java ==================  </label>
     
-       <FrameLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:id="@+id/fcontainer"/>
+    <textarea name="" id="">
+
+        package com.example.kamo;
     
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    
-    ============= regiFragment.java ================== 
-    
-    package com.example.kamo;
-    
-    import static java.nio.file.Files.find;
-    
-    import android.app.AlertDialog;
-    import android.content.DialogInterface;
-    import android.os.Bundle;
-    
-    import androidx.fragment.app.Fragment;
-    
-    import android.view.LayoutInflater;
-    import android.view.View;
-    import android.view.ViewGroup;
-    import android.widget.AdapterView;
-    import android.widget.Button;
-    import android.widget.CheckBox;
-    import android.widget.CompoundButton;
-    import android.widget.EditText;
-    import android.widget.RadioButton;
-    import android.widget.RadioGroup;
-    import android.widget.Spinner;
-    
-    
-    public class RegistrationFragment extends Fragment {
-    
-        EditText name;
-        RadioGroup rggender;
-        RadioButton male,female;
-        Spinner country;
-        CheckBox iphone,samsung, vivo;
-        Button submit;
-        String gender="";
-        String c="";
-        String brand="";
-    
-    
-    
-        public RegistrationFragment() {
-            // Required empty public constructor
-        }
-    
-    
-    
-    
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            View view = inflater.inflate(R.layout.fragment_registration, container, false);
-    
-            find(view);
-            event();
-            click();
-            return(view);
-        }
-    
-        private void find(View view){
-            name=view.findViewById(R.id.name);
-            rggender=view.findViewById(R.id.rggender);
-            male=view.findViewById(R.id.male);
-            female=view.findViewById(R.id.female);
-            country=view.findViewById(R.id.country);
-            iphone=view.findViewById(R.id.iphone);
-            samsung=view.findViewById(R.id.samsung);
-            vivo=view.findViewById(R.id.vivo);
-            submit=view.findViewById(R.id.submit);
-        }
-        private void click(){
-            submit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String n = name.getText().toString();
-                    String g = gender;
-                    String co = c;
-                    String b = brand;
-    
-                    String  message = "Name :"+n+"\n"+
-                            "Gender :"+g+"\n"+
-                            "Country :"+co+"\n"+
-                            "Brand :"+b+"\n";
-    
-    
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("Registration Data");
-                    builder.setMessage(message);
-                    builder.setCancelable(false);
-                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            ((MainActivity)getActivity()).loadfragment(new MobilelistFragment());
-    //                        dialogInterface.cancel();
+        import static java.nio.file.Files.find;
+        
+        import android.app.AlertDialog;
+        import android.content.DialogInterface;
+        import android.os.Bundle;
+        
+        import androidx.fragment.app.Fragment;
+        
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.AdapterView;
+        import android.widget.Button;
+        import android.widget.CheckBox;
+        import android.widget.CompoundButton;
+        import android.widget.EditText;
+        import android.widget.RadioButton;
+        import android.widget.RadioGroup;
+        import android.widget.Spinner;
+        
+        
+        public class RegistrationFragment extends Fragment {
+        
+            EditText name;
+            RadioGroup rggender;
+            RadioButton male,female;
+            Spinner country;
+            CheckBox iphone,samsung, vivo;
+            Button submit;
+            String gender="";
+            String c="";
+            String brand="";
+        
+        
+        
+            public RegistrationFragment() {
+                // Required empty public constructor
+            }
+        
+        
+        
+        
+            @Override
+            public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                     Bundle savedInstanceState) {
+                // Inflate the layout for this fragment
+                View view = inflater.inflate(R.layout.fragment_registration, container, false);
+        
+                find(view);
+                event();
+                click();
+                return(view);
+            }
+        
+            private void find(View view){
+                name=view.findViewById(R.id.name);
+                rggender=view.findViewById(R.id.rggender);
+                male=view.findViewById(R.id.male);
+                female=view.findViewById(R.id.female);
+                country=view.findViewById(R.id.country);
+                iphone=view.findViewById(R.id.iphone);
+                samsung=view.findViewById(R.id.samsung);
+                vivo=view.findViewById(R.id.vivo);
+                submit=view.findViewById(R.id.submit);
+            }
+            private void click(){
+                submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String n = name.getText().toString();
+                        String g = gender;
+                        String co = c;
+                        String b = brand;
+        
+                        String  message = "Name :"+n+"\n"+
+                                "Gender :"+g+"\n"+
+                                "Country :"+co+"\n"+
+                                "Brand :"+b+"\n";
+        
+        
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setTitle("Registration Data");
+                        builder.setMessage(message);
+                        builder.setCancelable(false);
+                        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                ((MainActivity)getActivity()).loadfragment(new MobilelistFragment());
+        //                        dialogInterface.cancel();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                });
+            }
+        
+        
+            private void event(){
+                rggender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                        if(male.isChecked()){
+                            gender = male.getText().toString();
+                        }else{
+                            gender = female.getText().toString();
                         }
-                    });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
-            });
+                    }
+                });
+        
+                country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                        if(position!=0){
+                            c = country.getSelectedItem().toString();
+                        }
+                    }
+        
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+        
+                    }
+                });
+        
+                iphone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        if(b == true){
+                            brand += iphone.getText().toString();
+                        }
+                    }
+                });
+        
+                samsung.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        if(b == true){
+                            brand += samsung.getText().toString();
+                        }
+                    }
+                });
+        
+                vivo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        if(b == true){
+                            brand += vivo.getText().toString();
+                        }
+                    }
+                });
+            }
         }
+    </textarea>
+
+
+    <br><br>
+    <hr><hr>
     
+    <label for=""> ============= regiFrafment.xml =================   </label>
     
-        private void event(){
-            rggender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                    if(male.isChecked()){
-                        gender = male.getText().toString();
-                    }else{
-                        gender = female.getText().toString();
-                    }
-                }
-            });
-    
-            country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                    if(position!=0){
-                        c = country.getSelectedItem().toString();
-                    }
-                }
-    
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-    
-                }
-            });
-    
-            iphone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    if(b == true){
-                        brand += iphone.getText().toString();
-                    }
-                }
-            });
-    
-            samsung.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    if(b == true){
-                        brand += samsung.getText().toString();
-                    }
-                }
-            });
-    
-            vivo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    if(b == true){
-                        brand += vivo.getText().toString();
-                    }
-                }
-            });
-        }
-    }
-    
-    ============= regiFrafment.xml =================  
-    
-    <?xml version="1.0" encoding="utf-8"?>
+    <textarea name="" id="">
+
+        <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -356,15 +374,22 @@
       </LinearLayout>
     
     </FrameLayout>
+    </textarea>
     
+    <br><br>
+
+    <hr><hr>
     
-    ============= String ===============
+   <label for="">  ============= String =============== </label>
     
+   <textarea name="" id="">
     <string-array name="country">
-            <item>Select Country</item>
-            <item>India</item>
-            <item>America</item>
-            <item>Dubai</item>
-        </string-array> -->
+        <item>Select Country</item>
+        <item>India</item>
+        <item>America</item>
+        <item>Dubai</item>
+    </string-array>
+   </textarea>
+
 </body>
 </html>
